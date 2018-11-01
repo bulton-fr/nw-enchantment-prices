@@ -4,3 +4,4 @@ app/modules/bfw-api
 app/modules/bfw-controller
 app/modules/bfw-fastroute
 app/modules/bfw-fenom
+app/modules/bfw-sql

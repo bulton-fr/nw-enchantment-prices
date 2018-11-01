@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "21a0014add0c07e1ca0a90317449fd95",
+    "content-hash": "e0b8cf9cad5817f683d831ec09969244",
     "packages": [
         {
             "name": "bulton-fr/bfw",
@@ -253,6 +253,55 @@
                 "template"
             ],
             "time": "2016-03-26T00:00:00+00:00"
+        },
+        {
+            "name": "bulton-fr/bfw-sql",
+            "version": "2.0.0-rc.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bulton-fr/bfw-sql.git",
+                "reference": "987f1a7bcb55d11145028c3bc82cca50aadcf979"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bulton-fr/bfw-sql/zipball/987f1a7bcb55d11145028c3bc82cca50aadcf979",
+                "reference": "987f1a7bcb55d11145028c3bc82cca50aadcf979",
+                "shasum": ""
+            },
+            "require": {
+                "bulton-fr/bfw": "3.0.0-rc.9",
+                "php": "^7.0.0"
+            },
+            "require-dev": {
+                "atoum/atoum": "~3.1",
+                "atoum/visibility-extension": "~1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BfwSql\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Vermeulen Maxime / Bulton",
+                    "email": "bulton.fr@bulton.fr",
+                    "homepage": "http://www.bulton.fr"
+                }
+            ],
+            "description": "SQL Module for BFW",
+            "homepage": "https://github.com/bulton-fr/bfw-sql",
+            "keywords": [
+                "bfw",
+                "module",
+                "pdo",
+                "sql"
+            ],
+            "time": "2016-11-05T00:00:00+00:00"
         },
         {
             "name": "bulton-fr/dependency-tree",
@@ -574,7 +623,8 @@
         "bulton-fr/bfw-controller": 5,
         "bulton-fr/bfw-fastroute": 5,
         "bulton-fr/bfw-fenom": 5,
-        "bulton-fr/bfw-api": 5
+        "bulton-fr/bfw-api": 5,
+        "bulton-fr/bfw-sql": 5
     },
     "prefer-stable": false,
     "prefer-lowest": false,
