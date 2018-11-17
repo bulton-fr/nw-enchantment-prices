@@ -1,3 +1,4 @@
+/node_modules/
 /vendor/
 app/logs/
 app/modules/bfw-api
@@ -5,3 +6,6 @@ app/modules/bfw-controller
 app/modules/bfw-fastroute
 app/modules/bfw-fenom
 app/modules/bfw-sql
+src/view/templates/compiled/
+web/assets/css/
+web/assets/js/
