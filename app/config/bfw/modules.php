@@ -20,11 +20,11 @@ return [
             /**
              * @var string name : Module's name
              */
-            'name'    => '',
+            'name'    => 'bfw-sql',
             /**
              * @var boolean enabled : If the module is enable or not
              */
-            'enabled' => false
+            'enabled' => true
         ],
         
         /**
