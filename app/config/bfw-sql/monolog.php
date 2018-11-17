@@ -18,6 +18,13 @@ return [
      * Second is "args" (array), the list of argument passed to the constructor
      */
     'handlers' => [
+        //1.x Monolog always send to stdout if no handler is define :/
+        [
+            'name' => '\Monolog\Handler\TestHandler',
+            'args' => []
+        ]
+        /**
+         * Value example:
         [
             'name' => '\Monolog\Handler\StreamHandler',
             'args' => [
@@ -25,5 +32,6 @@ return [
                 Logger::DEBUG
             ]
         ]
+        */
     ]
 ];

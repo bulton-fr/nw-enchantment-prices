@@ -25,7 +25,7 @@ return [
              * @var string filePath Path to the file used for db
              * Used by sqlite driver for example. Keep empty if not used.
              */
-            public $filePath = APP_DIR.'/database.sqlite';
+            public $filePath = APP_DIR.'db/database.sqlite';
             
             /**
              * @var string host Datatable host to connect
@@ -60,6 +60,12 @@ return [
             public $baseType = 'sqlite';
             
             /**
+             * @var string tablePrefix The prefix used for all table.
+             *  Empty if not prefix to use
+             */
+            public $tablePrefix = '';
+            
+            /**
              * @var array pdoOptions Options passed to 4th arguments
              * of PDO::__construct
              * 
@@ -68,18 +74,22 @@ return [
             public $pdoOptions = [];
             
             /**
-             * @var boolean useUtf8 Force datas to be UTF-8
+             * @var array pdoAttributes Some attributes define with setAttribute
+             * method.
+             * 
+             * @link http://php.net/manual/en/pdo.setattribute.php
+             */
+            public $pdoAttributes = [
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+            ];
+            
+            /**
+             * @var boolean mysqlUtf8 Force datas to be UTF-8
              *  Used for Mysql
              * 
              * @link http://dev.mysql.com/doc/refman/5.7/en/charset-connection.html
              */
-            public $useUtf8 = true;
-            
-            /**
-             * @var string tablePrefix The prefix used for all table.
-             *  Empty if not prefix to use
-             */
-            public $tablePrefix = '';
+            public $mysqlUtf8 = false;
         }
         // Add object (duplicate first) into the array
         // to add others sql connexions

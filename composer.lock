@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0b8cf9cad5817f683d831ec09969244",
+    "content-hash": "977800f5b3cef5e22d5a287c34400c9d",
     "packages": [
         {
             "name": "bulton-fr/bfw",
@@ -256,16 +256,16 @@
         },
         {
             "name": "bulton-fr/bfw-sql",
-            "version": "2.0.0-rc.9",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bulton-fr/bfw-sql.git",
-                "reference": "987f1a7bcb55d11145028c3bc82cca50aadcf979"
+                "reference": "23dc66f82a9fcf96caf23067a40517fce06b5292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bulton-fr/bfw-sql/zipball/987f1a7bcb55d11145028c3bc82cca50aadcf979",
-                "reference": "987f1a7bcb55d11145028c3bc82cca50aadcf979",
+                "url": "https://api.github.com/repos/bulton-fr/bfw-sql/zipball/23dc66f82a9fcf96caf23067a40517fce06b5292",
+                "reference": "23dc66f82a9fcf96caf23067a40517fce06b5292",
                 "shasum": ""
             },
             "require": {
@@ -301,7 +301,7 @@
                 "pdo",
                 "sql"
             ],
-            "time": "2016-11-05T00:00:00+00:00"
+            "time": "2018-11-15 15:41:56"
         },
         {
             "name": "bulton-fr/dependency-tree",
@@ -445,16 +445,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.23.0",
+            "version": "1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
-                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
                 "shasum": ""
             },
             "require": {
@@ -519,7 +519,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-06-19T01:22:40+00:00"
+            "time": "2018-11-05T09:00:11+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -624,7 +624,7 @@
         "bulton-fr/bfw-fastroute": 5,
         "bulton-fr/bfw-fenom": 5,
         "bulton-fr/bfw-api": 5,
-        "bulton-fr/bfw-sql": 5
+        "bulton-fr/bfw-sql": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
