@@ -1,0 +1,4 @@
+{
+    "runner": "runner.php",
+    "require": ["bfw-sql", "bfw-fenom"]
+}
