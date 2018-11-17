@@ -37,5 +37,9 @@
  */
 
 return [
-    'routes' => []
+    'routes' => [
+        '/enchantments' => [
+            'className' => '\Api\Enchantments'
+        ]
+    ]
 ];
