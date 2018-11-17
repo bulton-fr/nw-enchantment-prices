@@ -33,5 +33,9 @@
  */
 
 return [
-    'routes' => []
+    'routes' => [
+        '/' => [
+            'target' => ['\Controller\Home', 'index']
+        ]
+    ]
 ];
