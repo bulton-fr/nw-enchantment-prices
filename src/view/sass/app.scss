@@ -1,0 +1,86 @@
+.nwep {
+    &-layout {
+        &__content {
+            padding-top: 48px;
+            
+            &__section {
+                max-width: 1100px;
+                margin-bottom: 48px;
+                
+                //Forced to kill .mdl-grid.mdl-grid--no-spacing>.mdl-cell*
+                & .nwep-card {
+                    padding-bottom: 20px;
+
+                    & > .nwep-card__title {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+        
+        /*
+         * Present but not used, only by JS (menu.js) right now
+        &__header {
+            .nwep-menu {
+                &__list {
+                    
+                }
+            }
+        }
+        */
+    }
+    
+    &-table {
+        td, th {
+            text-align: center;
+        }
+    }
+    
+    &-textfield {
+        width: 80px;
+        padding: 0;
+
+        &__input {
+            font-size: 13px;
+            text-align: center;
+        }
+    }
+    
+    &-components__image {
+        width: 35px;
+
+        &--border-blue, &--border-purple, &--border-orange {
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        &--border-blue {
+            border-color: blue;
+        }
+        &--border-purple {
+            border-color: purple;
+        }
+        &--border-orange {
+            border-color: orange;
+        }
+    }
+    
+    &-enchantments {
+        &__image {
+            width: 35px;
+        }
+        
+        &__comparison {
+            &--same {
+                background-color: #FFFDE7;
+            }
+            &--cheapest {
+                background-color: #E8F5E9;
+            }
+            &--most-expensive {
+                background-color: #FFEBEE;
+            }
+        }
+    }
+}
