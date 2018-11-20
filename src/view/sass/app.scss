@@ -9,6 +9,7 @@
                 
                 //Forced to kill .mdl-grid.mdl-grid--no-spacing>.mdl-cell*
                 & .nwep-card {
+                    overflow: auto;
                     padding-bottom: 20px;
 
                     & > .nwep-card__title {
