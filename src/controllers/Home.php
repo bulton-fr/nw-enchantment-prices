@@ -57,6 +57,8 @@ class Home extends \BfwController\Controller
         $compoList   = [];
         
         foreach ($allCompo as $componentInfo) {
+            $componentInfo->intoBazaar = (bool) $componentInfo->intoBazaar;
+            
             $compoList[$componentInfo->idComponent] = $componentInfo;
         }
         

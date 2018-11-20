@@ -1,12 +1,15 @@
 let app = (function() {
     "use strict";
     
-    let componentList = {},
-        rankList      = {},
-        enchantList   = {};
+    let componentOptions = null,
+        componentList    = {},
+        rankList         = {},
+        enchantList      = {};
     
     function init() {
         menu.init();
+        componentOptionsInit();
+        
         componentsInit();
         ranksInit();
         enchantmentsInit();
@@ -24,8 +27,12 @@ let app = (function() {
         return enchantList[enchantId];
     }
     
+    function componentOptionsInit() {
+        componentOptions = new ComponentOptions;
+    }
+    
     function componentsInit() {
-        let components   = document.querySelectorAll('.nwep-components__item'),
+        let components   = document.querySelectorAll('.nwep-js-component-item'),
             nbComponents = components.length,
             ComponentElem,
             ComponentId;
@@ -35,7 +42,10 @@ let app = (function() {
             ComponentId   = ComponentElem.dataset.componentId;
             
             componentList[ComponentId] = new Component(ComponentElem);
+            componentList[ComponentId].updateAllPrices();
         }
+        
+        //componentOptions.updatePrices();
     }
     
     function ranksInit() {
@@ -77,6 +87,9 @@ let app = (function() {
     return {
         init: init,
         formatValue: formatValue,
+        componentOptions: function() {
+            return componentOptions;
+        },
         componentList: componentList,
         rankList: rankList,
         enchantList: enchantList,

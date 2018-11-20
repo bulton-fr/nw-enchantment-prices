@@ -18,6 +18,7 @@
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script defer src="/assets/js/utils/ajax.js"></script>
         <script defer src="/assets/js/InputFormat.js"></script>
+        <script defer src="/assets/js/ComponentOptions.js"></script>
         <script defer src="/assets/js/Component.js"></script>
         <script defer src="/assets/js/Rank.js"></script>
         <script defer src="/assets/js/Enchantment.js"></script>
