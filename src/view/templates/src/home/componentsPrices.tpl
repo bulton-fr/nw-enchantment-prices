@@ -112,31 +112,33 @@
                                     {/if}
                                 {/if}
                                 
-                                {set $price = 0}
-                                {if $compPriceTypeKey === 'ah'}
-                                    {set $price = $component->priceAH}
-                                {elseif $compPriceTypeKey === 'bazaar'}
-                                    {set $price = $component->priceBazaar}
-                                {/if}
-                                
                                 <td
                                     class="nwep-components__item"
                                     {$rowspan}
                                 >
-                                    <div class="mdl-textfield mdl-js-textfield nwep-textfield">
+                                    {if $compPriceTypeKey === 'ah'}
+                                        <div class="mdl-textfield mdl-js-textfield nwep-textfield">
+                                            <input
+                                                type="hidden"
+                                                id="componentsPrice[{$component->idComponent}][{$compPriceTypeKey}][raw]"
+                                                value="{$component->priceAH}"
+                                            >
+                                            <input
+                                                type="text"
+                                                class="mdl-textfield__input nwep-textfield__input"
+                                                id="componentsPrice[{$component->idComponent}][{$compPriceTypeKey}][formated]"
+                                                value="{$component->priceAH|number_format}"
+                                                data-component-price-from="{$compPriceTypeKey}"
+                                            >
+                                        </div>
+                                    {elseif $compPriceTypeKey === 'bazaar'}
                                         <input
                                             type="hidden"
                                             id="componentsPrice[{$component->idComponent}][{$compPriceTypeKey}][raw]"
-                                            value="{$price}"
+                                            value="{$component->priceBazaar}"
                                         >
-                                        <input
-                                            type="text"
-                                            class="mdl-textfield__input nwep-textfield__input"
-                                            id="componentsPrice[{$component->idComponent}][{$compPriceTypeKey}][formated]"
-                                            value="{$price|number_format}"
-                                            data-component-price-from="{$compPriceTypeKey}"
-                                        >
-                                    </div>
+                                        {$component->priceBazaar|number_format}
+                                    {/if}
                                 </td>
                             {/foreach}
                         </tr>
@@ -150,7 +152,7 @@
                                 <input
                                     type="hidden"
                                     id="componentsPrice[{$component->idComponent}][raw]"
-                                    value="{$price}"
+                                    value=""
                                 >
                                 <span class="components_final-price"></span>
                             </td>
