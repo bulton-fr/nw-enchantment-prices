@@ -66,13 +66,18 @@ class Enchantment extends InputFormat
     saveInputValue(event)
     {
         let rankId   = event.target.dataset.rankId,
-            rawValue = this.obtainRawInputElement(event.target).value;
+            rawValue = this.obtainRawInputElement(event.target).value,
+            token    = this.obtainTokenValue(rankId);
         
         let ajax = new Utils_Ajax(
             '/api/enchantments',
             {
                 success: function(xhr) {
                     //Display update ok
+                    let response = JSON.parse(xhr.responseText),
+                        token    = response.token;
+                    
+                    this.updateToken(rankId, token);
                 }.bind(this),
                 error: function(xhr) {
                     //Display update error
@@ -87,10 +92,25 @@ class Enchantment extends InputFormat
         let datas = {
             enchantmentId: this.enchantId,
             rankId: rankId,
-            price: rawValue
+            price: rawValue,
+            token: token
         };
         
         ajax.run(JSON.stringify(datas));
+    }
+    
+    obtainTokenValue(rankId)
+    {
+        let inputTokenName = "enchantmentPrices[token]["+this.enchantId+"]["+rankId+"]";
+        
+        return document.getElementById(inputTokenName).value;
+    }
+    
+    updateToken(rankId, newToken)
+    {
+        let inputTokenName = "enchantmentPrices[token]["+this.enchantId+"]["+rankId+"]";
+        
+        document.getElementById(inputTokenName).value = newToken;
     }
     
     updateComparison()

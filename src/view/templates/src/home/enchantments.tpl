@@ -58,12 +58,20 @@
                                     {else}
                                         {set $rankPriceFormated = ''}
                                     {/if}
+                                    
+                                    {set $tokenName = 'enchants_' ~ $enchantId ~ '_' ~ $rankId}
+                                    {set $tokenValue = $tokens->newInput($tokenName)}
                                     <td>
                                         <div class="mdl-textfield mdl-js-textfield nwep-textfield">
                                             <input
                                                 type="hidden"
                                                 id="enchantmentPrices[ah][raw][{$enchantId}][{$rankId}]"
                                                 value="{$rankInfo->price}"
+                                            >
+                                            <input
+                                                type="hidden"
+                                                id="enchantmentPrices[token][{$enchantId}][{$rankId}]"
+                                                value="{$tokenValue}"
                                             >
                                             <input
                                                 type="text"

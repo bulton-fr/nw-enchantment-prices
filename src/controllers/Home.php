@@ -19,6 +19,12 @@ class Home extends \BfwController\Controller
         $this->tpl  = $moduleList->getModuleByName('bfw-fenom')->fenom;
         $this->i18n = $moduleList->getModuleByName('I18n')->i18n;
         
+        $this->tplVars['tokens'] = \BFW\Application::getInstance()
+            ->getModuleList()
+            ->getModuleByName('Tokens')
+            ->tokens
+        ;
+        
         $this->tplVars['i18n'] = $this->i18n;
     }
     
