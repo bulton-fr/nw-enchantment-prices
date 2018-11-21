@@ -15,7 +15,7 @@ const menu = (function() {
             return;
         }
         
-        let width   = '600px',//event.target.width,
+        let width   = '700px',//event.target.width,
             height  = event.target.height,
             parent  = event.target.parentNode,
             outline = parent.querySelector('.mdl-menu__outline');
@@ -29,6 +29,14 @@ const menu = (function() {
         
         outline.style.width  = width;
         outline.style.height = height;
+        
+        let allMenus = document.querySelectorAll('.nwep-menu'),
+            nbMenus  = allMenus.length
+        ;
+        
+        for (let menuIdx=0; menuIdx < nbMenus; menuIdx++) {
+            allMenus[menuIdx].style.width = width;
+        }
     }
     
     return {
