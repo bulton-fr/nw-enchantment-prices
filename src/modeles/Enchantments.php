@@ -8,9 +8,21 @@ class Enchantments extends AbstractModeles
     
     public function getAllForType($type)
     {
+        $currentLang = \BFW\Application::getInstance()
+            ->getModuleList()
+            ->getModuleByName('I18n')
+            ->userLang
+            ->getUserLang()
+        ;
+        
         $req = $this->select('object')
-            ->from($this->tableName, '*')
-            ->where('type=:type', [':type' => $type])
+            ->from(['e' => $this->tableName], '*')
+            ->joinLeft(
+                ['i' => 'i18n'],
+                'i.idI18n=e.idI18n'
+            )
+            ->where('e.type=:type', [':type' => $type])
+            ->order('i`.`text'.ucfirst($currentLang))
         ;
         
         return $req->getExecuter()->fetchAll();
