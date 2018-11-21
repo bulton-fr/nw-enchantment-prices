@@ -40,6 +40,9 @@ return [
     'routes' => [
         '/enchantments' => [
             'className' => '\Api\Enchantments'
+        ],
+        '/components' => [
+            'className' => '\Api\Components'
         ]
     ]
 ];

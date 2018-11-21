@@ -32,10 +32,57 @@ class Component extends InputFormat
     obtainRawInputElement(inputElement)
     {
         let priceFrom = inputElement.dataset.componentPriceFrom;
-        console.debug(inputElement);
         
-        console.debug("componentsPrice["+this.componentId+"]["+priceFrom+"][raw]");
         return document.getElementById("componentsPrice["+this.componentId+"]["+priceFrom+"][raw]");
+    }
+    
+    saveInputValue()
+    {
+        let fakeDataset = {dataset: {componentPriceFrom: "ah"}},
+            rawValue    = this.obtainRawInputElement(fakeDataset).value,
+            token       = this.obtainTokenValue();
+        
+        let ajax = new Utils_Ajax(
+            '/api/components',
+            {
+                success: function(xhr) {
+                    //Display update ok
+                    let response = JSON.parse(xhr.responseText),
+                        token    = response.token;
+                    
+                    this.updateToken(token);
+                }.bind(this),
+                error: function(xhr) {
+                    //Display update error
+                }.bind(this)
+            },
+            'POST'
+        );
+        
+        ajax.setRequestHeader('Content-Type', 'application/json');
+        ajax.setRequestHeader('Accept', 'application/json');
+        
+        let datas = {
+            componentId: this.componentId,
+            price: rawValue,
+            token: token
+        };
+        
+        ajax.run(JSON.stringify(datas));
+    }
+    
+    obtainTokenValue()
+    {
+        let inputTokenName = "componentsPrice["+this.componentId+"][token]";
+        
+        return document.getElementById(inputTokenName).value;
+    }
+    
+    updateToken(newToken)
+    {
+        let inputTokenName = "componentsPrice["+this.componentId+"][token]";
+        
+        document.getElementById(inputTokenName).value = newToken;
     }
     
     updateAllPrices()

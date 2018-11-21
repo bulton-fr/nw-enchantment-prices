@@ -4,9 +4,17 @@
 >
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text mdl-grid nwep-card">
-            <h2 class="mdl-cell mdl-cell--12-col mdl-typography--title nwep-card__title">
+            <h2 class="mdl-cell mdl-cell--8-col mdl-typography--title nwep-card__title">
                 Components prices
             </h2>
+            <div class="mdl-cell mdl-cell--4-col mdl-typography--text-right">
+                <button
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                    id="componentSavePriceAH"
+                >
+                    Save AH prices
+                </button>
+            </div>
             <div class="mdl-cell mdl-cell--12-col nwep-components__options">
                 Use prices from :
                 <label
@@ -117,11 +125,18 @@
                                     {$rowspan}
                                 >
                                     {if $compPriceTypeKey === 'ah'}
+                                        {set $tokenName = 'components_' ~ $component->idComponent}
+                                        {set $tokenValue = $tokens->newInput($tokenName)}
                                         <div class="mdl-textfield mdl-js-textfield nwep-textfield">
                                             <input
                                                 type="hidden"
                                                 id="componentsPrice[{$component->idComponent}][{$compPriceTypeKey}][raw]"
                                                 value="{$component->priceAH}"
+                                            >
+                                            <input
+                                                type="hidden"
+                                                id="componentsPrice[{$component->idComponent}][token]"
+                                                value="{$tokenValue}"
                                             >
                                             <input
                                                 type="text"

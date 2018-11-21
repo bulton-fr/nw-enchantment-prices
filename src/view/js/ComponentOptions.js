@@ -19,6 +19,9 @@ class ComponentOptions
         this.addEventsOnDiscounts();
         
         this.obtainDefaultValues();
+        
+        document.getElementById('componentSavePriceAH')
+                .addEventListener('click', this.saveAllPrices.bind(this));
     }
     
     addEventsOnPricesFrom()
@@ -112,6 +115,15 @@ class ComponentOptions
         
         for (let componentId in componentList) {
             componentList[componentId].updateAllPrices();
+        }
+    }
+    
+    saveAllPrices()
+    {
+        let componentList = app.componentList;
+        
+        for (let componentId in componentList) {
+            componentList[componentId].saveInputValue();
         }
     }
 }

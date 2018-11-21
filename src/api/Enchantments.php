@@ -25,8 +25,6 @@ class Enchantments extends \BfwApi\Rest
         if ($tokenStatus === false) {
             http_response_code(401);
             
-            var_dump($_SESSION);
-            
             return;
         }
         
@@ -61,11 +59,9 @@ class Enchantments extends \BfwApi\Rest
             ->tokens
         ;
         
-        $tokenInput = $formToken->obtainInput(
+        return $formToken->obtainInput(
             'enchants_'.$enchantId.'_'.$rankId
         );
-        
-        return $tokenInput;
     }
     
     protected function checkToken(
