@@ -13,9 +13,13 @@ class I18n
     
     const ERR_GET_VALUES_UNKNOWN_ID = 9101001;
     
+    const ERR_GET_VALUES_UNKNOWN_REF = 9101002;
+    
     protected $userLang;
     
     protected $values = [];
+    
+    protected $idForKey = [];
     
     public function __construct(UserLang $userLang)
     {
@@ -29,7 +33,8 @@ class I18n
         return $this->values;
     }
     
-    public function getValueForId(int $id): string {
+    public function getValueForId(int $id): string
+    {
         if (!isset($this->values[$id])) {
             throw new Exception(
                 'The key '.$id.' not exist in values list',
@@ -43,6 +48,18 @@ class I18n
         }
         
         return $this->values[$id]->{$currentLang};
+    }
+    
+    public function getValueForRef(string $ref): string
+    {
+        if (!isset($this->idForKey[$ref])) {
+            throw new Exception(
+                'The ref '.$ref.' not exist in list',
+                self::ERR_GET_VALUES_UNKNOWN_REF
+            );
+        }
+        
+        return $this->getValueForId($this->idForKey[$ref]);
     }
     
     protected function obtainAllI18n()
@@ -72,6 +89,8 @@ class I18n
                 'en' => $dbRow->textEn,
                 'fr' => $dbRow->textFr
             ];
+            
+            $this->idForKey[$dbRow->ref] = $dbRow->idI18n;
         }
     }
 }
