@@ -21,8 +21,6 @@ return [
      *  observer. Format is the same of "handlers" in "monolog.php" config file
      */
     'observers' => [
-        /**
-         * Value example:
         [
             'className'       => '\BfwSql\Observers\Basic',
             'monologHandlers' => [
@@ -30,6 +28,5 @@ return [
                 'others'    => []
             ]
         ]
-        */
     ]
 ];
