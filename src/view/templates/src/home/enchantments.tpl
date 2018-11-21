@@ -5,7 +5,8 @@
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing nwep-card">
             <h2 class="mdl-cell mdl-cell--12-col mdl-typography--title nwep-card__title nwep-enchantments">
-                {$type} enchantments
+                {set $i18nEnchantSectionTitle = $type ~ "-enchantments"}
+                {$i18n->getValueForRef($i18nEnchantSectionTitle)}
             </h2>
             {set $list = $enchantmentList.$type}
 
@@ -29,7 +30,7 @@
                     <table class="mdl-data-table mdl-js-data-table nwep-table">
                         <thead>
                             <tr>
-                                <th class="mdl-data-table__cell--non-numeric">Name</th> <!-- i18n -->
+                                <th class="mdl-data-table__cell--non-numeric">{$i18n->getValueForRef('name')}</th>
                                 {foreach $enchant->ranks as $rankInfo}
                                     <th class="mdl-data-table__cell--non-numeric">
                                         {$i18n->getValueForId($rankInfo->idI18n)}
@@ -39,7 +40,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="mdl-data-table__cell--non-numeric">Upgrade</td>
+                                <td class="mdl-data-table__cell--non-numeric">{$i18n->getValueForRef('upgrade')}</td>
                                 {foreach $enchant->ranks as $rankId => $rankInfo}
                                     <td>
                                         <span
@@ -50,7 +51,7 @@
                                 {/foreach}
                             </tr>
                             <tr>
-                                <td class="mdl-data-table__cell--non-numeric">Action house</td>
+                                <td class="mdl-data-table__cell--non-numeric">{$i18n->getValueForRef('action-house')}</td>
                                 {foreach $enchant->ranks as $rankId => $rankInfo}
                                     {set $rankPriceFormated = $rankInfo->price}
                                     {if $rankInfo->price > 0}

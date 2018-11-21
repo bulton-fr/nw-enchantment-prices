@@ -1,7 +1,7 @@
 <header class="mdl-layout__header nwep-layout__header">
     <div class="mdl-layout__header-row">
         <span class="android-title mdl-layout-title">
-            Neverwinter : Enchantments prices
+            {$i18n->getValueForRef('title')}
         </span>
         <!-- Add spacer, to align navigation to the right in desktop -->
         <div class="android-header-spacer mdl-layout-spacer"></div>
@@ -12,21 +12,21 @@
                     class="mdl-navigation__link mdl-typography--text-uppercase"
                     href="#componentsPrices"
                 >
-                    Components Prices
+                    {$i18n->getValueForRef('components-prices')}
                 </a>
                 <a
                     class="mdl-navigation__link mdl-typography--text-uppercase"
                     href="#armorEnchantment"
                     id="menuArmorEnchantment"
                 >
-                    Armor Enchantments
+                    {$i18n->getValueForRef('armor-enchantments')}
                 </a>
                 <a
                     class="mdl-navigation__link mdl-typography--text-uppercase"
                     href="#weaponEnchantment"
                     id="menuWeaponEnchantment"
                 >
-                    Weapon Enchantments
+                    {$i18n->getValueForRef('weapon-enchantments')}
                 </a>
             </nav>
             <div

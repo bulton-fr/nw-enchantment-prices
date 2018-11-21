@@ -5,18 +5,18 @@
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text mdl-grid nwep-card">
             <h2 class="mdl-cell mdl-cell--8-col mdl-typography--title nwep-card__title">
-                Components prices
+                {$i18n->getValueForRef('components-prices')}
             </h2>
             <div class="mdl-cell mdl-cell--4-col mdl-typography--text-right">
                 <button
                     class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                     id="componentSavePriceAH"
                 >
-                    Save AH prices
+                    {$i18n->getValueForRef('save-ah-prices')}
                 </button>
             </div>
             <div class="mdl-cell mdl-cell--12-col nwep-components__options">
-                Use prices from :
+                {$i18n->getValueForRef('use-prices-from')} :
                 <label
                     class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
                     for="componentsOptionsUsePriceFromAH"
@@ -29,7 +29,7 @@
                         value="ah"
                         checked
                     >
-                    <span class="mdl-radio__label">Action house</span>
+                    <span class="mdl-radio__label">{$i18n->getValueForRef('action-house')}</span>
                 </label>
                 <label
                     class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
@@ -42,11 +42,11 @@
                         name="components[options][pricesFrom]"
                         value="bazaar"
                     >
-                    <span class="mdl-radio__label">Bazaar</span>
+                    <span class="mdl-radio__label">{$i18n->getValueForRef('bazaar')}</span>
                 </label>
             </div>
             <div class="mdl-cell mdl-cell--12-col nwep-components__options">
-                Wanderous discount : 
+                {$i18n->getValueForRef('bazaar-discounts')} : 
                 <label
                     class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect nwep-components__options__checkbox"
                     for="componentsOptionsDiscountEvent"
@@ -60,7 +60,7 @@
                         data-discount-type="event"
                         data-discount-vip-lvl=""
                     >
-                    <span class="mdl-checkbox__label">Event (-15%)</span>
+                    <span class="mdl-checkbox__label">{$i18n->getValueForRef('event-(-15%)')}</span>
                 </label>
                 {set $vipDiscountLvls = [8, 9, 10, 11, 12]}
                 {foreach $vipDiscountLvls as $lvl}
@@ -77,7 +77,8 @@
                             data-discount-type="vip"
                             data-discount-vip-lvl="{$lvl}"
                         >
-                        <span class="mdl-checkbox__label">VIP {$lvl} (-5%)</span>
+                        {set $i18nVipDiscount = "vip-" ~ $lvl ~ "-(-5%)"}
+                        <span class="mdl-checkbox__label">{$i18n->getValueForRef($i18nVipDiscount)}</span>
                     </label>
                 {/foreach}
             </div>
@@ -101,10 +102,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {set $componentsPricesType = ['ah' => 'action house', 'bazaar' => 'Bazaar']}
+                    {set $componentsPricesType = ['ah' => 'action-house', 'bazaar' => 'bazaar']}
                     {foreach $componentsPricesType as $compPriceTypeKey => $compPriceTypeName index=$compPriceIndex}
                         <tr>
-                            <td>{$compPriceTypeName}</td>
+                            <td>{$i18n->getValueForRef($compPriceTypeName)}</td>
                             {foreach $componentList as $component}
                                 {set $rowspan = ''}
                                 {if $component->intoBazaar == 0}
@@ -161,7 +162,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>Used price</td>
+                        <td>{$i18n->getValueForRef('used-price')}</td>
                         {foreach $componentList as $component}
                             <td data-component-id="{$component->idComponent}">
                                 <input

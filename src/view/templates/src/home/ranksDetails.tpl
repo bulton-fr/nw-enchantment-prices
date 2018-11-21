@@ -5,12 +5,12 @@
     <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing nwep-card">
             <h2 class="mdl-cell mdl-cell--12-col mdl-typography--title nwep-card__title">
-                Ranks detail
+                {$i18n->getValueForRef('ranks-detail')}
             </h2>
             <table class="mdl-data-table mdl-js-data-table nwep-table">
                 <thead>
                     <tr>
-                        <th class="mdl-data-table__cell--non-numeric">Name</th> <!-- i18n -->
+                        <th class="mdl-data-table__cell--non-numeric">{$i18n->getValueForRef('name')}</th>
                         {foreach $componentList as $component}
                             <th>
                                 <img
@@ -20,7 +20,7 @@
                                 >
                             </th>
                         {/foreach}
-                        <th>Price</th> <!-- i18n -->
+                        <th>{$i18n->getValueForRef('price')}</th>
                     </tr>
                 </thead>
                 <tbody>
