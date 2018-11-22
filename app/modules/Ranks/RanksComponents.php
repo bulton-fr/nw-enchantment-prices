@@ -48,6 +48,7 @@ class RanksComponents
             $ranksDetail[$idRank] = (object) [
                 'idI18n'       => $rankInfo->idI18n,
                 'idRankBefore' => $rankInfo->idRankBefore,
+                'number'       => $rankInfo->number,
                 'components'   => []
             ];
             
