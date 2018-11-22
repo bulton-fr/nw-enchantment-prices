@@ -36,7 +36,7 @@ class Component extends InputFormat
         return document.getElementById("componentsPrice["+this.componentId+"]["+priceFrom+"][raw]");
     }
     
-    saveInputValue()
+    saveInputValue(resolve, reject)
     {
         let fakeDataset = {dataset: {componentPriceFrom: "ah"}},
             rawValue    = this.obtainRawInputElement(fakeDataset).value,
@@ -46,14 +46,15 @@ class Component extends InputFormat
             '/api/components',
             {
                 success: function(xhr) {
-                    //Display update ok
                     let response = JSON.parse(xhr.responseText),
                         token    = response.token;
                     
                     this.updateToken(token);
+                    
+                    resolve();
                 }.bind(this),
                 error: function(xhr) {
-                    //Display update error
+                    reject();
                 }.bind(this)
             },
             'POST'

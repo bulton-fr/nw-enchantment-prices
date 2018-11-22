@@ -32,6 +32,18 @@
         */
     }
     
+    &-snackbar {
+        &--error {
+            background-color: #E57373; //red 300
+        }
+        &--valid {
+            background-color: #81C784; //green 300
+        }
+        &__text {
+            color: rgba(0,0,0,.87);
+        }
+    }
+    
     &-table {
         td, th {
             text-align: center;
@@ -49,6 +61,15 @@
     }
     
     &-components {
+        &__spinner {
+            display: none;
+            height: 16px;
+            width: 16px;
+            
+            &.is-active {
+                display: inline-block;
+            }
+        }
         &__options {
             &__checkbox {
                 display: inline;

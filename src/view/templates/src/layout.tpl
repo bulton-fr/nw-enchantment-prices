@@ -13,6 +13,14 @@
 
         <main class="mdl-layout__content mdl-color--grey-100 mdl-color-text--grey-700 mdl-base nwep-layout__content">
             {include "{$page}"}
+            
+            <div
+                class="mdl-js-snackbar mdl-snackbar nwep-snackbar"
+                id="snackBar"
+            >
+                <div class="mdl-snackbar__text nwep-snackbar__text"></div>
+                <button class="mdl-snackbar__action" type="button"></button>
+            </div>
         </main>
         
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>

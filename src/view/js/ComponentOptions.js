@@ -120,10 +120,29 @@ class ComponentOptions
     
     saveAllPrices()
     {
-        let componentList = app.componentList;
+        let spinner       = document.querySelector('.nwep-components__spinner'),
+            componentList = app.componentList,
+            promiseList   = [];
         
+        spinner.classList.add('is-active');
+
         for (let componentId in componentList) {
-            componentList[componentId].saveInputValue();
+            promiseList.push(
+                new Promise(function (resolve, reject) {
+                    componentList[componentId].saveInputValue(resolve, reject);
+                })
+            );
         }
+        
+        Promise.all(promiseList).then(function() {
+            app.displaySnackBar("All components prices has been save.");
+        }).catch(function () {
+            app.displaySnackBar(
+                'There was an error during the components prices save.',
+                true
+            );
+        }).finally(function () {
+            spinner.classList.remove('is-active');
+        });
     }
 }

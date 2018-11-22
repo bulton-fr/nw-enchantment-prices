@@ -15,6 +15,7 @@
                     class="nwep-enchantments__item"
                     data-enchant-type="{$type}"
                     data-enchant-id="{$enchantId}"
+                    data-enchant-name="{$i18n->getValueForId($enchant->idI18n)}"
                 >
                     <h3
                         class="mdl-typography--title"

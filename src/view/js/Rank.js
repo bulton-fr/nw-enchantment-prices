@@ -6,6 +6,7 @@ class Rank
     {
         this.domElement    = domElement;
         this.rankId        = domElement.dataset.rankId;
+        this.rankInfo      = nwep.ranksDetails[this.rankId];
         this.finalRawPrice = 0;
     }
     

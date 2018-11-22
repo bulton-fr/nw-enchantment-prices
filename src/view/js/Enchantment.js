@@ -9,6 +9,7 @@ class Enchantment extends InputFormat
         this.domElement  = domElement;
         this.enchantId   = domElement.dataset.enchantId;
         this.enchantType = domElement.dataset.enchantType;
+        this.enchantName = domElement.dataset.enchantName;
         this.ranksPrice  = {};
         
         for(let rankId in nwep.ranksDetails) {
@@ -73,14 +74,24 @@ class Enchantment extends InputFormat
             '/api/enchantments',
             {
                 success: function(xhr) {
-                    //Display update ok
                     let response = JSON.parse(xhr.responseText),
                         token    = response.token;
                     
                     this.updateToken(rankId, token);
+                    
+                    //Display update ok
+                    let rankNum = app.getRankForId(rankId).rankInfo.number;
+                    app.displaySnackBar(
+                        this.enchantName+" R"+rankNum+" : Price updated"
+                    );
                 }.bind(this),
                 error: function(xhr) {
                     //Display update error
+                    let rankNum = app.getRankForId(rankId).rankInfo.number;
+                    app.displaySnackBar(
+                        this.enchantName+" R"+rankNum+" : Price update has failed",
+                        true
+                    );
                 }.bind(this)
             },
             'POST'

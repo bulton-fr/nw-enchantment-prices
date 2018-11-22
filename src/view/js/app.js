@@ -84,10 +84,30 @@ let app = (function() {
         return Intl.NumberFormat(userLang).format(rawValue);
     }
     
+    function displaySnackBar(msg, hasError = false) {
+        let snackbar    = document.getElementById('snackBar'),
+            snackbarTxt = document.querySelector('.mdl-snackbar__text')
+        ;
+        
+        if (hasError === false) {
+            snackbar.classList.remove('nwep-snackbar--error');
+            snackbar.classList.add('nwep-snackbar--valid');
+        } else {
+            snackbar.classList.add('nwep-snackbar--error');
+            snackbar.classList.remove('nwep-snackbar--valid');
+        }
+        
+        snackbar.MaterialSnackbar.showSnackbar({
+            message: msg
+        });
+    }
+    
     return {
         init: init,
         formatValue: formatValue,
         componentOptions: function() {
+            //To always have an access to the var, and not the value at the
+            //moment of the return is executed -_- (where is reference ?!)
             return componentOptions;
         },
         componentList: componentList,
@@ -95,6 +115,7 @@ let app = (function() {
         enchantList: enchantList,
         getComponentForId: getComponentForId,
         getRankForId: getRankForId,
-        getEnchantmentForId: getEnchantmentForId
+        getEnchantmentForId: getEnchantmentForId,
+        displaySnackBar: displaySnackBar
     };
 })();

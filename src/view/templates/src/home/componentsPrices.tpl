@@ -13,6 +13,7 @@
                     id="componentSavePriceAH"
                 >
                     {$i18n->getValueForRef('save-ah-prices')}
+                    <div class="mdl-spinner mdl-js-spinner nwep-components__spinner"></div>
                 </button>
             </div>
             <div class="mdl-cell mdl-cell--12-col nwep-components__options">
