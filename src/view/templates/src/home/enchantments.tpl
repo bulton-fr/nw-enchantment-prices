@@ -32,9 +32,16 @@
                         <thead>
                             <tr>
                                 <th class="mdl-data-table__cell--non-numeric">{$i18n->getValueForRef('name')}</th>
-                                {foreach $enchant->ranks as $rankInfo}
+                                {foreach $enchant->ranks as $rankId => $rankInfo}
                                     <th class="mdl-data-table__cell--non-numeric">
                                         {$i18n->getValueForId($rankInfo->idI18n)}
+                                        {if $rankInfo->isOutdated === true}
+                                            <i
+                                                class="material-icons nwep-enchantments__outdated"
+                                                id="enchant_outdated_{$enchantId}_{$rankId}"
+                                                title="{$i18n->getValueForRef('the-price-is-outdated')}"
+                                            >schedule</i>
+                                        {/if}
                                     </th>
                                 {/foreach}
                             </tr>

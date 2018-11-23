@@ -78,6 +78,7 @@ class Enchantment extends InputFormat
                         token    = response.token;
                     
                     this.updateToken(rankId, token);
+                    this.removeOutdated(rankId);
                     
                     //Display update ok
                     let rankNum = app.getRankForId(rankId).rankInfo.number;
@@ -122,6 +123,17 @@ class Enchantment extends InputFormat
         let inputTokenName = "enchantmentPrices[token]["+this.enchantId+"]["+rankId+"]";
         
         document.getElementById(inputTokenName).value = newToken;
+    }
+    
+    removeOutdated(rankId)
+    {
+        let icon = document.getElementById("enchant_outdated_"+this.enchantId+"_"+rankId);
+        
+        if (icon === null) {
+            return;
+        }
+        
+        icon.style.display = 'none';
     }
     
     updateComparison()

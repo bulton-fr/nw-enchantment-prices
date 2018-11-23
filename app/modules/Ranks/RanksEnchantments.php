@@ -10,15 +10,12 @@ class RanksEnchantments
     
     protected $prices = [];
     
-    protected $isOutdated = true;
-    
     public function __construct(int $enchantmentId)
     {
         $this->enchantmentId = $enchantmentId;
         
         $this->obtainRanks();
         $this->obtainPrices();
-        $this->checkOutdated();
     }
     
     protected function obtainRanks()
@@ -37,19 +34,17 @@ class RanksEnchantments
         }
     }
     
-    protected function checkOutdated()
+    protected function checkOutdated(int $idRank): bool
     {
-        $current = new \DateTime;
+        $current   = new \DateTime;
+        $priceDate = new \DateTime($this->prices[$idRank]->updateDate);
+        $dateDiff  = $current->diff($priceDate);
         
-        foreach ($this->prices as $priceInfo) {
-            $priceDate = new \DateTime($priceInfo->updateDate);
-            $dateDiff  = $current->diff($priceDate);
-            
-            if ($dateDiff->days > 7) {
-                $this->isOutdated = true;
-                break;
-            }
+        if ($dateDiff->days > 7) {
+            return true;
         }
+        
+        return false;
     }
     
     public function generateList(): array
@@ -62,12 +57,14 @@ class RanksEnchantments
             $rankList[$idRank] = (object) [
                 'idI18n'     => $rankInfo->idI18n,
                 'price'      => null,
-                'updateDate' => null
+                'updateDate' => null,
+                'isOutdated' => false,
             ];
             
             if (!empty($this->prices[$idRank])) {
                 $rankList[$idRank]->price      = $this->prices[$idRank]->price;
                 $rankList[$idRank]->updateDate = $this->prices[$idRank]->updateDate;
+                $rankList[$idRank]->isOutdated = $this->checkOutdated($idRank);
             }
         }
         

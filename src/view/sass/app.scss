@@ -112,6 +112,11 @@
             width: 35px;
         }
         
+        &__outdated {
+            font-size: 18px;
+            color: #F57C00;
+        }
+        
         &__comparison {
             &--same {
                 background-color: #FFFDE7;
