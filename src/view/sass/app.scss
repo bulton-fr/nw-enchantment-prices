@@ -1,0 +1,132 @@
+.nwep {
+    &-layout {
+        &__content {
+            padding-top: 48px;
+            
+            &__section {
+                max-width: 1190px;
+                margin-bottom: 48px;
+                
+                //Forced to kill .mdl-grid.mdl-grid--no-spacing>.mdl-cell*
+                & .nwep-card {
+                    overflow: auto;
+                    padding-bottom: 20px;
+
+                    & > .nwep-card__title {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+        
+        /*
+         * Present but not used, only by JS (menu.js) right now
+        &__header {
+            .nwep-menu {
+                &__list {
+                    
+                }
+            }
+        }
+        */
+    }
+    
+    &-snackbar {
+        &--error {
+            background-color: #E57373; //red 300
+        }
+        &--valid {
+            background-color: #81C784; //green 300
+        }
+        &__text {
+            color: rgba(0,0,0,.87);
+        }
+    }
+    
+    &-table {
+        td, th {
+            text-align: center;
+        }
+    }
+    
+    &-textfield {
+        width: 80px;
+        padding: 0;
+
+        &__input {
+            font-size: 13px;
+            text-align: center;
+        }
+    }
+    
+    &-components {
+        &__spinner {
+            display: none;
+            height: 16px;
+            width: 16px;
+            
+            &.is-active {
+                display: inline-block;
+            }
+        }
+        &__options {
+            &__checkbox {
+                display: inline;
+                .mdl-checkbox__box-outline {
+                    top: 0px;
+                }
+            }
+        }
+        
+        .nwep-table tbody tr:hover {
+            background-color: inherit;
+        }
+        
+        /*.mdl-data-table tbody tr:hover {
+            background-color: #eee;
+        }*/
+        
+        &__image {
+            width: 35px;
+
+            &--border-blue, &--border-purple, &--border-orange {
+                border-width: 1px;
+                border-style: solid;
+            }
+
+            &--border-blue {
+                border-color: blue;
+            }
+            &--border-purple {
+                border-color: purple;
+            }
+            &--border-orange {
+                border-color: orange;
+            }
+        }
+    }
+    
+    &-enchantments {
+        &__image {
+            width: 35px;
+        }
+        
+        &__outdated {
+            font-size: 18px;
+            color: #F57C00;
+        }
+        
+        &__comparison {
+            &--same {
+                background-color: #FFFDE7;
+            }
+            &--cheapest {
+                background-color: #E8F5E9;
+            }
+            &--most-expensive {
+                background-color: #FFEBEE;
+            }
+        }
+    }
+}

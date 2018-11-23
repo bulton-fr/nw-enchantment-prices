@@ -1,0 +1,17 @@
+{
+  "name": "enchantment-prices",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-sass": "^4.0.2"
+  },
+  "author": "bulton-fr",
+  "license": "LGPL3"
+}
