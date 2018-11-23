@@ -100,6 +100,16 @@ let app = (function() {
         });
     }
     
+    function getI18nForRef(ref) {
+        if(nwep.i18n.idForRef.hasOwnProperty(ref) === false) {
+            console.debug('i18n ref not exist');
+            throw new Error('I18n ref not exist');
+        }
+        
+        let id = nwep.i18n.idForRef[ref];
+        return nwep.i18n.values[id][nwep.i18n.currentLang];
+    }
+    
     return {
         init: init,
         formatValue: formatValue,
@@ -114,6 +124,7 @@ let app = (function() {
         getComponentForId: getComponentForId,
         getRankForId: getRankForId,
         getEnchantmentForId: getEnchantmentForId,
-        displaySnackBar: displaySnackBar
+        displaySnackBar: displaySnackBar,
+        getI18nForRef: getI18nForRef
     };
 })();

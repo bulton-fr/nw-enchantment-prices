@@ -135,10 +135,10 @@ class ComponentOptions
         }
         
         Promise.all(promiseList).then(function() {
-            app.displaySnackBar("All components prices has been save.");
+            app.displaySnackBar(app.getI18nForRef('components-price-update-done'));
         }).catch(function () {
             app.displaySnackBar(
-                'There was an error during the components prices save.',
+                app.getI18nForRef('components-price-update-fail'),
                 true
             );
         }).finally(function () {

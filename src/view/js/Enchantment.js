@@ -82,14 +82,14 @@ class Enchantment extends InputFormat
                     //Display update ok
                     let rankNum = app.getRankForId(rankId).rankInfo.number;
                     app.displaySnackBar(
-                        this.enchantName+" R"+rankNum+" : Price updated"
+                        this.enchantName+" R"+rankNum+" : "+app.getI18nForRef('price-updated')
                     );
                 }.bind(this),
                 error: function(xhr) {
                     //Display update error
                     let rankNum = app.getRankForId(rankId).rankInfo.number;
                     app.displaySnackBar(
-                        this.enchantName+" R"+rankNum+" : Price update has failed",
+                        this.enchantName+" R"+rankNum+" : "+app.getI18nForRef('price-update-has-failed'),
                         true
                     );
                 }.bind(this)

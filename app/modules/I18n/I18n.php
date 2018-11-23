@@ -28,11 +28,21 @@ class I18n
         $this->obtainAllI18n();
     }
     
+    public function getUserLang()
+    {
+        return $this->userLang;
+    }
+        
     public function getValues(): array
     {
         return $this->values;
     }
     
+    public function getIdForKey()
+    {
+        return $this->idForKey;
+    }
+        
     public function getValueForId(int $id): string
     {
         if (!isset($this->values[$id])) {

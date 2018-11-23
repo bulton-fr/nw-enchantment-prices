@@ -9,6 +9,11 @@
         
         <script>
             let nwep = {};
+            nwep.i18n = {
+                currentLang: "{$i18n->getUserLang()->getUserLang()}",
+                values: {$i18n->getValues()|json_encode},
+                idForRef: {$i18n->getIdForKey()|json_encode}
+            };
         </script>
 
         <main class="mdl-layout__content mdl-color--grey-100 mdl-color-text--grey-700 mdl-base nwep-layout__content">
