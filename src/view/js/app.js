@@ -85,9 +85,7 @@ let app = (function() {
     }
     
     function displaySnackBar(msg, hasError = false) {
-        let snackbar    = document.getElementById('snackBar'),
-            snackbarTxt = document.querySelector('.mdl-snackbar__text')
-        ;
+        let snackbar = document.getElementById('snackBar');
         
         if (hasError === false) {
             snackbar.classList.remove('nwep-snackbar--error');
